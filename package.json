@@ -1,0 +1,67 @@
+{
+	"name": "touchbar-core",
+	"displayName": "TouchBar Core",
+	"description": "",
+	"publisher": "ctuu",
+	"version": "0.0.1",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "workbench.action.showCommands",
+				"title": ">_",
+				"icon": "./assets/command@2x.png"
+			},
+			{
+				"command": "explorer.newFile",
+				"title": "New File",
+				"icon": "./assets/new_file@2x.png"
+			},
+			{
+				"command": "workbench.action.tasks.test",
+				"title": "😂",
+				"icon": "./assets/run_task@2x.png"
+			}
+		],
+		"configuration": [
+			{
+				"title": "Touch Bar Core",
+				"properties": {
+					"touchbar-core.RunTestTask": {
+						"type": "boolean",
+						"default": false,
+						"description": "Show Run Test Task icon 😂"
+					}
+				}
+			}
+		],
+		"menus": {
+			"touchBar": [
+				{
+					"command": "workbench.action.showCommands",
+					"group": "navigation@0"
+				},
+				{
+					"command": "explorer.newFile",
+					"when": "workspaceFolderCount",
+					"group": "navigation@1"
+				},
+				{
+					"command": "workbench.action.tasks.test",
+					"when": "config.touchbar-core.RunTestTask",
+					"group": "navigation@2"
+				}
+			]
+		}
+	},
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/ctuu/vscode-touchbar-core.git"
+    }
+}
